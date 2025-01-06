@@ -46,14 +46,13 @@ class BankKonto:
             print(f'\nÜberweisung unterbrochen😣 {error}')
 
 class Zinskonto(BankKonto):
-    """Deposit money with interest"""
+    """Geld anlegen mit Zinsen"""
     def anlage(self, betrag):
         self.saldo = self.saldo + (betrag * 1.05)
         print("\nAnlage fertig.")
         self.getBalance()
 
 class SparKonto(Zinskonto):
-    """"""
     def __init__(self, initialerBetrag, kontoName):
         super().__init__(initialerBetrag, kontoName)
         self.gebühr = 5
