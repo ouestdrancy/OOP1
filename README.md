@@ -2,7 +2,7 @@ In Bankkonto.py steht der Code für Bankaktivitäten (Köntoeröffnung, Überwei
 
 In oop_projekt.py stehen Befehle, um den Code in Bankkonto.py auszuführen.
 
-Zum Auszuführen bitte diesen Befehl eingeben:
+Zum Ausführen bitte diesen Befehl eingeben:
 
 ```python oop_projekt.py``` 
 
