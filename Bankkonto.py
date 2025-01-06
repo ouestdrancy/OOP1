@@ -3,11 +3,13 @@ class BalanceException(Exception):
     
 class BankKonto:
     def __init__(self, initialerBetrag, kontoName):
+        """Konto Erstellung."""
         self.saldo = initialerBetrag
         self.name = kontoName
         print(f"\nKonto '{self.name}' erstellt.\nSaldo = {self.saldo:.2f}€")
 
     def getBalance(self):
+        """Print account balance."""
         print(f"\nKonto '{self.name}' Saldo = {self.saldo:.2f}€")
 
     def anlage(self, betrag):
@@ -17,6 +19,7 @@ class BankKonto:
 
     def viableTransaction(self, betrag):
         if self.saldo >= betrag:
+            # viable transaction.
             return
         else:
             raise BalanceException(
@@ -43,15 +46,18 @@ class BankKonto:
             print(f'\nÜberweisung unterbrochen😣 {error}')
 
 class Zinskonto(BankKonto):
+    """Deposit money with interest"""
     def anlage(self, betrag):
         self.saldo = self.saldo + (betrag * 1.05)
         print("\nAnlage fertig.")
         self.getBalance()
 
 class SparKonto(Zinskonto):
+    """"""
     def __init__(self, initialerBetrag, kontoName):
         super().__init__(initialerBetrag, kontoName)
         self.gebühr = 5
+
     def auszahlung(self, betrag):
         try:
             self.viableTransaction(betrag + self.gebühr)
